@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Date Decider</title>
+  <meta name="theme-color" content="#790000">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&family=Cinzel+Decorative:wght@400;700&family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- 1 · LOCK SCREEN -->
+    <section class="view view-top" data-view="lock" aria-label="Locked">
+      <img class="logo" src="assets/logo.png" alt="Date Decider for Icola and Zuzu">
+      <form id="lockForm" class="lock-form" autocomplete="off" novalidate>
+        <label class="lock-box" for="dateInput">Enter Icel's or<br>Hamza's birthday<br>to enter</label>
+        <input id="dateInput" class="field" type="text" inputmode="numeric" enterkeyhint="go"
+               placeholder="Date" maxlength="12" autocomplete="off" autocapitalize="off" spellcheck="false"
+               aria-describedby="lockMsg">
+        <p id="lockMsg" class="lock-msg" role="alert"></p>
+      </form>
+    </section>
+
+    <!-- 2 · HOME -->
+    <section class="view view-top" data-view="home" aria-label="Home">
+      <img class="logo" src="assets/logo.png" alt="Date Decider for Icola and Zuzu">
+
+      <nav class="menu" aria-label="Main menu">
+        <a class="btn btn-lg" href="#/idea">INSERT&nbsp; DATE IDEA</a>
+        <a class="btn btn-lg" href="#/random">RANDOM DATE PICKER</a>
+        <a class="btn btn-sm" href="#/memories">PAST DATES AND MEMORIES</a>
+      </nav>
+
+      <img class="swirl swirl-1" src="assets/swirl-icola.png" alt="Icola">
+      <img class="swirl swirl-2" src="assets/swirl-zuzu.png" alt="Zuzu">
+
+      <img class="love" src="assets/tagline-love.png" alt="Made with love for my love">
+      <img class="been" src="assets/been-together.png" alt="Been together for">
+
+      <div class="count" role="timer" aria-label="Time we have been together">
+        <div class="unit"><span class="num" id="c-y">000</span><img src="assets/count/yrs.png" alt="years"></div>
+        <div class="sep"><span class="colon">:</span></div>
+        <div class="unit"><span class="num" id="c-mo">000</span><img src="assets/count/mon.png" alt="months"></div>
+        <div class="sep"><span class="colon">:</span></div>
+        <div class="unit"><span class="num" id="c-d">000</span><img src="assets/count/day.png" alt="days"></div>
+        <div class="sep"><span class="colon">:</span></div>
+        <div class="unit"><span class="num" id="c-h">000</span><img src="assets/count/hrs.png" alt="hours"></div>
+        <div class="sep"><span class="colon">:</span></div>
+        <div class="unit"><span class="num" id="c-mi">000</span><img src="assets/count/min.png" alt="minutes"></div>
+        <div class="sep"><span class="colon">:</span></div>
+        <div class="unit"><span class="num" id="c-s">000</span><img src="assets/count/sec.png" alt="seconds"></div>
+      </div>
+    </section>
+
+    <!-- 3 · INSERT DATE IDEA -->
+    <section class="view view-card" data-view="idea" aria-label="Insert date idea">
+      <div class="card card-form">
+        <img class="ttl" src="assets/titles/date-idea.png" alt="Date Idea">
+        <form id="ideaForm" class="stack" autocomplete="off">
+          <input id="ideaName" class="field" type="text" placeholder="Date Name" maxlength="40" aria-label="Date name">
+          <textarea id="ideaDesc" class="field area" placeholder="Description" maxlength="600" aria-label="Description"></textarea>
+          <input id="ideaLoc" class="field" type="text" placeholder="google maps address" maxlength="300" aria-label="Google Maps address or link">
+          <button class="heart-btn" type="submit" aria-label="Submit date idea"><img src="assets/heart.png" alt=""></button>
+        </form>
+      </div>
+      <a class="foot foot-capture" href="#/"><img src="assets/tagline-capture.png" alt="Make sure to capture memories"></a>
+    </section>
+
+    <!-- 4 · RANDOM DATE -->
+    <section class="view view-card" data-view="random" aria-label="Random date">
+      <div class="card card-form">
+        <img class="ttl" src="assets/titles/random-date.png" alt="Random Date">
+        <div class="stack" aria-live="polite">
+          <div id="rName" class="field show">Date Name</div>
+          <div id="rDesc" class="field show area"><span>Description</span></div>
+          <a id="rLoc" class="field show" target="_blank" rel="noopener noreferrer">google maps address</a>
+          <button id="again" class="heart-btn" type="button" aria-label="Another random date"><img src="assets/heart.png" alt=""></button>
+        </div>
+      </div>
+      <a class="foot foot-capture" href="#/"><img src="assets/tagline-capture.png" alt="Make sure to capture memories"></a>
+    </section>
+
+    <!-- 5 · PAST DATES (list of 10) -->
+    <section class="view view-card" data-view="memories" aria-label="Past dates">
+      <div class="card card-list">
+        <img class="ttl" src="assets/titles/past-dates.png" alt="Past Dates">
+        <ul class="list" id="memList"></ul>
+      </div>
+    </section>
+
+    <!-- 6 · ONE MEMORY (photo) -->
+    <section class="view view-card" data-view="memory" aria-label="Memory">
+      <div class="card card-photo">
+        <img class="ttl" id="memTitle" src="" alt="">
+        <div class="photo"><img id="memPhoto" src="" alt=""></div>
+        <img class="heart" src="assets/heart.png" alt="">
+      </div>
+      <a class="foot foot-till" href="#/memories"><img src="assets/tagline-till-death.png" alt="Till death do us apart"></a>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p style="color:#fde8c2;text-align:center;padding:2rem">Please turn on JavaScript to open this page.</p></noscript>
+
+  <script src="ideas.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

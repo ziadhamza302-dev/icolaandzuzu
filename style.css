@@ -1,0 +1,253 @@
+/* ==========================================================
+   Date Decider — styles
+   Every size is in rem and was measured from the 360 x 720
+   designs (1rem = 16px of the design), so the whole page
+   scales smoothly from small phones up to desktop.
+   ========================================================== */
+
+:root {
+  --bg: #790000;      /* deep red background */
+  --cream: #fde8c2;   /* cream cards / buttons / text */
+  --tan: #c9b89a;     /* input boxes */
+  --ink: #000;
+  --deco: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+  --serif: 'Cinzel', 'Cinzel Decorative', Georgia, serif;
+  --hand: 'Sue Ellen Francisco', 'Segoe Print', cursive;   /* countdown numbers */
+  --count-size: 1.5rem;                                     /* tweak if the numbers look too big/small */
+  --shadow: 0 .25rem .4rem rgba(0, 0, 0, .4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: clamp(14px, 4.444vw, 18px);   /* 4.444vw = 16px on a 360px phone */
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--serif);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img { display: block; max-width: none; }
+a { color: inherit; }
+
+#app {
+  width: 22.5rem;            /* 360px design width */
+  max-width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ---------- views ---------- */
+.view {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1.4375rem;
+}
+.view.active { display: flex; animation: fade .3s ease both; }
+.view-top  { padding-top: 1.875rem; }
+.view-card { padding-top: 2.25rem; }
+
+@keyframes fade { from { opacity: 0; transform: translateY(.4rem); } to { opacity: 1; transform: none; } }
+@keyframes shake { 0%,100% { transform: none; } 20%,60% { transform: translateX(-.4rem); } 40%,80% { transform: translateX(.4rem); } }
+
+.logo { height: 12.25rem; width: auto; }
+
+/* ---------- shared fields ---------- */
+.field {
+  display: block;
+  width: 16.25rem;
+  height: 2.375rem;
+  background: var(--tan);
+  color: var(--ink);
+  border: 0;
+  border-radius: 0;
+  font-family: var(--deco);
+  font-size: 1.2rem;
+  text-align: center;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field::placeholder { color: #1a1a1a; opacity: 1; }
+.field:focus-visible { box-shadow: inset 0 0 0 .125rem var(--bg); }
+
+/* ---------- 1 · lock ---------- */
+.lock-form { display: flex; flex-direction: column; align-items: center; margin-top: 1.0625rem; }
+.lock-box {
+  width: 15.875rem;
+  height: 5.0625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--cream);
+  color: var(--bg);
+  font-family: var(--deco);
+  font-size: 1.2rem;
+  line-height: 1.625rem;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+}
+.lock-form .field { margin-top: 1.0625rem; width: 16.25rem; }
+.lock-msg { min-height: 1.5rem; margin-top: 1rem; font-size: 1rem; letter-spacing: .05em; text-align: center; color: var(--cream); }
+.lock-form.shake { animation: shake .35s; }
+
+/* ---------- 2 · home ---------- */
+.menu { margin-top: 1.0625rem; display: flex; flex-direction: column; align-items: center; gap: 1.47rem; }
+.btn {
+  width: 15.875rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  color: var(--bg);
+  font-family: var(--deco);
+  letter-spacing: .02em;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, filter .12s ease;
+}
+.btn-lg { font-size: 1.25rem; }
+.btn-sm { font-size: .97rem; }
+.btn:hover { filter: brightness(1.04); }
+.btn:active { transform: scale(.97); }
+.btn:focus-visible { outline: .1875rem solid var(--cream); outline-offset: .2rem; }
+
+.swirl { width: 100%; height: auto; }
+.swirl-1 { margin-top: .375rem; }
+.swirl-2 { margin-top: 1.875rem; }
+.love { width: 17rem; height: auto; margin-top: 1.25rem; }
+.been { width: 8.0625rem; height: auto; }
+
+.count { margin-top: .6875rem; display: flex; justify-content: center; align-items: flex-start; }
+.unit { width: 1.375rem; display: flex; flex-direction: column; align-items: center; }
+.sep  { width: 1rem; text-align: center; }
+.num, .colon {
+  display: block;
+  font-family: var(--hand);
+  font-size: var(--count-size);
+  line-height: 1.375rem;
+  height: 1.375rem;
+  color: var(--cream);
+  white-space: nowrap;
+}
+.unit img { height: 1.3125rem; width: auto; }
+
+/* ---------- cards (pages 3-6) ---------- */
+.card {
+  width: 18rem;
+  background: var(--cream);
+  padding: 1.25rem .875rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* pointed ribbon bottom */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.1875rem), 50% 100%, 0 calc(100% - 3.1875rem));
+}
+.ttl { height: 5.0625rem; width: auto; }
+
+.stack { display: flex; flex-direction: column; align-items: center; margin-top: 1.625rem; gap: 1.1875rem; }
+.card-form { padding-bottom: .625rem; }
+.area { height: 14rem; resize: none; }
+textarea.area { padding: .75rem; line-height: 1.5rem; }
+textarea.area:placeholder-shown:not(:focus) { padding-top: 6.1rem; }
+
+/* random page read-only boxes */
+.show { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 2.375rem; padding: 0 .5rem; text-decoration: none; }
+a.show { cursor: pointer; }
+a.show:not([href]) { cursor: default; }
+.area.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: pre-wrap;
+  line-height: 1.5rem;
+  padding: .75rem;
+  overflow-y: auto;
+}
+
+.heart-btn { background: none; border: 0; padding: 0; cursor: pointer; margin-top: 2.3125rem; transition: transform .15s ease; }
+.heart-btn img { width: 3.625rem; height: auto; }
+.heart-btn:hover { transform: scale(1.06); }
+.heart-btn:active { transform: scale(.88); }
+.heart-btn:focus-visible { outline: .1875rem solid var(--bg); outline-offset: .2rem; }
+.heart-btn.beat { animation: beat .4s ease; }
+@keyframes beat { 30% { transform: scale(1.25); } 100% { transform: none; } }
+
+/* past dates list */
+.card-list { padding-bottom: 3.3125rem; }
+.list { list-style: none; margin-top: 1.6875rem; }
+.list li { margin-bottom: .119rem; }
+.list a {
+  width: 16.125rem;
+  height: 2.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: .22rem solid var(--bg);
+  background: var(--cream);
+  color: var(--bg);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  letter-spacing: .03em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .12s ease, color .12s ease;
+}
+.list a:hover, .list a:focus-visible { background: var(--bg); color: var(--cream); outline: none; }
+
+/* one memory */
+.card-photo { padding-bottom: 3.125rem; }
+.card-photo .photo { width: 16.25rem; height: 14.3125rem; margin-top: 2.3125rem; overflow: hidden; }
+.card-photo .photo img { width: 100%; height: auto; }
+.card-photo .heart { width: 3.625rem; height: auto; margin-top: 2.0625rem; }
+
+/* taglines under the cards */
+.foot { margin-top: auto; padding-top: 1.8125rem; display: block; }
+.foot img { height: auto; }
+.foot-capture img { width: 18.5rem; }
+.foot-till img { width: 16.5rem; }
+
+/* toast message */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translate(-50%, 1rem);
+  max-width: 20rem;
+  width: max-content;
+  padding: .7rem 1.1rem;
+  background: var(--cream);
+  color: var(--bg);
+  font-family: var(--serif);
+  font-size: .95rem;
+  letter-spacing: .03em;
+  text-align: center;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 10;
+}
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
