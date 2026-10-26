@@ -8,8 +8,8 @@
   const CONFIG = {
     // Where submitted date ideas get sent for review (a GitHub Issue on your repo).
     // Put your real GitHub username and repository name here:
-    githubUser: 'YOUR-GITHUB-USERNAME',
-    githubRepo: 'YOUR-REPO-NAME',
+    githubUser: 'ziadhamza302-dev',
+    githubRepo: 'icolaandzuzu',
 
     // The two birthdays that open the lock (day-month-year).
     birthdays: ['28-3-2006', '10-1-2007'],
