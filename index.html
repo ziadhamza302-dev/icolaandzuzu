@@ -21,7 +21,7 @@
       <img class="logo" src="assets/logo.png" alt="Date Decider for Icola and Zuzu">
       <form id="lockForm" class="lock-form" autocomplete="off" novalidate>
         <label class="lock-box" for="dateInput">Enter Icel's or<br>Hamza's birthday<br>to enter</label>
-        <input id="dateInput" class="field" type="text" inputmode="numeric" enterkeyhint="go"
+        <input id="dateInput" class="field" type="text" enterkeyhint="go"
                placeholder="Date" maxlength="12" autocomplete="off" autocapitalize="off" spellcheck="false"
                aria-describedby="lockMsg">
         <p id="lockMsg" class="lock-msg" role="alert"></p>
@@ -61,12 +61,15 @@
 
     <!-- 3 · INSERT DATE IDEA -->
     <section class="view view-card" data-view="idea" aria-label="Insert date idea">
+      <a class="back" href="#/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+
       <div class="card card-form">
         <img class="ttl" src="assets/titles/date-idea.png" alt="Date Idea">
         <form id="ideaForm" class="stack" autocomplete="off">
           <input id="ideaName" class="field" type="text" placeholder="Date Name" maxlength="40" aria-label="Date name">
           <textarea id="ideaDesc" class="field area" placeholder="Description" maxlength="600" aria-label="Description"></textarea>
           <input id="ideaLoc" class="field" type="text" placeholder="google maps address" maxlength="300" aria-label="Google Maps address or link">
+          <button id="pickLoc" class="pick" type="button"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Pick on map</span></button>
           <button class="heart-btn" type="submit" aria-label="Submit date idea"><img src="assets/heart.png" alt=""></button>
         </form>
       </div>
@@ -75,6 +78,8 @@
 
     <!-- 4 · RANDOM DATE -->
     <section class="view view-card" data-view="random" aria-label="Random date">
+      <a class="back" href="#/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+
       <div class="card card-form">
         <img class="ttl" src="assets/titles/random-date.png" alt="Random Date">
         <div class="stack" aria-live="polite">
@@ -89,6 +94,8 @@
 
     <!-- 5 · PAST DATES (list of 10) -->
     <section class="view view-card" data-view="memories" aria-label="Past dates">
+      <a class="back" href="#/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+
       <div class="card card-list">
         <img class="ttl" src="assets/titles/past-dates.png" alt="Past Dates">
         <ul class="list" id="memList"></ul>
@@ -97,6 +104,8 @@
 
     <!-- 6 · ONE MEMORY (photo) -->
     <section class="view view-card" data-view="memory" aria-label="Memory">
+      <a class="back" href="#/memories" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+
       <div class="card card-photo">
         <img class="ttl" id="memTitle" src="" alt="">
         <div class="photo"><img id="memPhoto" src="" alt=""></div>
@@ -112,5 +121,6 @@
 
   <script src="ideas.js"></script>
   <script src="app.js"></script>
+  <script src="map.js"></script>
 </body>
 </html>

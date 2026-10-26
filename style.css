@@ -225,6 +225,56 @@ a.show:not([href]) { cursor: default; }
 .foot-capture img { width: 18.5rem; }
 .foot-till img { width: 16.5rem; }
 
+/* back arrow (top-left of the card pages) */
+.view-card { position: relative; }
+.back {
+  position: absolute; top: .25rem; left: .25rem;
+  width: 2.5rem; height: 2.5rem;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream); border-radius: 50%;
+}
+.back:hover, .back:focus-visible { background: rgba(253, 232, 194, .15); outline: none; }
+
+/* "Pick on map" button + map picker */
+#ideaForm .heart-btn { margin-top: -.625rem; }
+.pick {
+  display: flex; align-items: center; gap: .4rem;
+  height: 1.75rem; padding: 0 .6rem;
+  background: none; border: 0; cursor: pointer;
+  color: var(--bg); font-family: var(--serif); font-size: .95rem; letter-spacing: .04em;
+  text-decoration: underline; text-underline-offset: .2rem;
+}
+.pick:focus-visible { outline: .1875rem solid var(--bg); outline-offset: .1rem; }
+
+body.map-open { overflow: hidden; }
+.mapov[hidden] { display: none; }
+.mapov {
+  position: fixed; inset: 0; z-index: 20;
+  display: flex; flex-direction: column; align-items: center;
+  background: var(--bg);
+}
+.mapov-in { width: 22.5rem; max-width: 100%; height: 100%; display: flex; flex-direction: column; padding: .6rem; gap: .6rem; }
+.mapbar { display: flex; gap: .5rem; align-items: center; }
+.mapbar .x, .mapbar .go { flex: none; height: 2.375rem; border: 0; cursor: pointer; background: var(--cream); color: var(--bg); font-family: var(--serif); font-size: 1rem; }
+.mapbar .x { width: 2.375rem; font-size: 1.3rem; line-height: 1; }
+.mapbar .go { padding: 0 .8rem; }
+.mapbar input { flex: 1; min-width: 0; width: auto; height: 2.375rem; background: var(--cream); font-size: 1rem; padding: 0 .6rem; text-align: left; }
+.mapwrap { position: relative; flex: 1; min-height: 0; background: var(--tan); }
+#mapBox { position: absolute; inset: 0; }
+.mapres {
+  position: absolute; left: 0; right: 0; top: 0; z-index: 1000;
+  list-style: none; max-height: 60%; overflow-y: auto; background: var(--cream);
+  box-shadow: var(--shadow);
+}
+.mapres:empty { display: none; }
+.mapres button { display: block; width: 100%; text-align: left; padding: .6rem .7rem; border: 0; border-bottom: 1px solid var(--tan); background: none; color: var(--bg); font-family: var(--serif); font-size: .9rem; cursor: pointer; }
+.mapres button:hover, .mapres button:focus-visible { background: var(--tan); outline: none; }
+.mapmsg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; text-align: center; color: var(--bg); font-family: var(--serif); }
+.mapfoot { display: flex; flex-direction: column; gap: .5rem; }
+.mapfoot p { min-height: 1.2rem; text-align: center; font-size: .9rem; color: var(--cream); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mapfoot .use { height: 2.5rem; border: 0; cursor: pointer; background: var(--cream); color: var(--bg); font-family: var(--deco); font-size: 1.1rem; }
+.mapfoot .use:disabled { opacity: .5; cursor: default; }
+
 /* toast message */
 .toast {
   position: fixed;
